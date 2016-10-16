@@ -47,13 +47,3 @@ class NavbarController {
       }
     }
 }
-//
-// $scope.$watch(function(){
-//     return userService.isLoggedIn()
-// },function(newVal,oldVal){
-//     if(newVal){
-//         self.logged = true
-//     }else{
-//         self.logged = false
-//     }
-// })

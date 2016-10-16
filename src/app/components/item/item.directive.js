@@ -13,27 +13,18 @@ export function itemDirective() {
     return directive;
 }
 class itemController {
-    constructor($log,cartService,$localStorage,$mdDialog) {
+    constructor($log,cartService,$localStorage,toastr) {
         'ngInject';
         this.cartService = cartService
         this.limit = 5
         this.$log = $log
         this.$localStorage = $localStorage
-        this.$mdDialog = $mdDialog
+        this.toastr = toastr
     }
-    dialog(title,desc){
-      return this.$mdDialog.show(
-         this.$mdDialog.alert()
-           .clickOutsideToClose(true)
-           .title(title)
-           .textContent(desc)
-           .ariaLabel('Alert Dialog Demo')
-           .ok('Got it!')
-       )
-    }
+
     add(item){
       this.cartService.add(item)
-      this.dialog('item added','youre item was successfully added to the shopping cart, click the white bag on the top navbar to check your cart')
+      this.toastr.success('youre item was successfully added','item added')
     }
     isChecked(item){
       return this.$localStorage.checked.includes(item.id)
@@ -43,7 +34,7 @@ class itemController {
     }
     remove(item){
       this.cartService.deleteItem(item)
-      this.dialog('item removed','your item was successfully removed from the shopping cart')
+      this.toastr.warning('your item was successfully removed','item removed')
 
     }
 }

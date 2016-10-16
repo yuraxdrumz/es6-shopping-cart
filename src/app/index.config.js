@@ -5,9 +5,9 @@ export function config ($logProvider, toastrConfig,$localStorageProvider) {
 
   // Set options third-party lib
   toastrConfig.allowHtml = true;
-  toastrConfig.timeOut = 3000;
+  toastrConfig.timeOut = 1000;
   toastrConfig.positionClass = 'toast-top-right';
-  toastrConfig.progressBar = true;
+  // toastrConfig.progressBar = true;
 
 
 
