@@ -1,0 +1,19 @@
+<form class="login_form" novalidate name="login_form" ng-submit="login.login(login.user)">
+
+    <div class="login_input_wrapper">
+        <md-input-container class="login_input_container">
+            <label>Email</label>
+            <input type="email" name="email" ng-model="login.user.email" ng-model-options='{debounce:300}' required> </md-input-container>
+    </div>
+    <div class="login_input_wrapper">
+        <md-input-container class="login_input_container">
+            <label>Password</label> <span ng-messages="login_form.pass.$error">
+            <span ng-message="minlength">Password must be at least 5 digits long</span> <span ng-message="maxlength">Password must be 12 digits maximum</span> </span>
+            <input type="password" name="pass" ng-model="login.user.password" ng-model-options='{debounce:300}' ng-maxlength="12" ng-minlength='5' md-maxlength='12' required>
+        </md-input-container>
+    </div>
+    <div class="login_input_wrapper">
+        <button type="submit" ng-disabled="login_form.$invalid" class="btn btn-primary login_btn"> Login </button>
+    </div>
+    <div class="err_messages"> </div>
+</form>

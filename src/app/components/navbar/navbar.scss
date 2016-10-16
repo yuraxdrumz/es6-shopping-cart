@@ -1,0 +1,29 @@
+.acme-navbar-text{
+  color: white;
+}
+
+a {
+  color: black;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+  line-height: 1.25em;
+}
+
+a:hover, a:focus {
+  color: white;
+}
+
+.navbar_logout{
+    cursor: pointer;
+}
+.shop_cart{
+    color:white;
+    float: left;
+    padding: 12px 12px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 50px;
+}

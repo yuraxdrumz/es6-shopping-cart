@@ -1,0 +1,24 @@
+.login_form{
+    display: flex;
+    margin-top: 15%;
+    flex-direction: column;
+//    background: rgba(0, 0, 0, 0.4);
+//    width: 50%;
+//    margin-left: auto;
+//    margin-right: auto;
+}
+.err_messages{
+    color:red;
+    margin-top: 1rem;
+}
+.login_input_container{
+    width: 40%;
+}
+.login_input_wrapper{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+.login_btn{
+    width: 40%;
+}

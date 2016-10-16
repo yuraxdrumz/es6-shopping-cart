@@ -1,0 +1,47 @@
+<form class="register_form" novalidate name="register_form" ng-submit="reg.register(reg.user)">
+        <div class="reg_input_wrapper">
+        <md-input-container class="reg_input_container">
+            <label>Name</label>
+            <input type="text" name="name" ng-model="reg.user.name" ng-model-options='{debounce:300}' required>
+        </md-input-container>
+    </div>
+       <div class="reg_input_wrapper">
+        <md-input-container class="reg_input_container">
+            <label>Email</label>
+
+            <input type="email" name="email" ng-model="reg.user.email" ng-model-options='{debounce:300}' required>
+        </md-input-container>
+    </div>
+    <div class="reg_input_wrapper">
+        <md-input-container class="reg_input_container">
+            <label>Retype Email</label>
+                <span ng-messages="register_form.email_re.$error">
+                    <span ng-message="pattern" >Emails do not match</span>
+                </span>
+
+            <input type="email" name="email_re" ng-model="reg.user.email_re" ng-model-options='{debounce:300}' ng-pattern="reg.user.email" required></md-input-container>
+    </div>
+    <div class="reg_input_wrapper">
+        <md-input-container class="reg_input_container">
+            <label>Password</label>
+                <span ng-messages="register_form.pass.$error">
+                    <span ng-message="minlength"  >Password must be at least 5 digits long</span>
+                    <span ng-message="maxlength" >Password must be 12 digits long the most</span>
+                </span>
+            <input type="password" name="pass" ng-model="reg.user.password" ng-model-options='{debounce:300}' ng-maxlength="12" ng-minlength='5' md-maxlength='12' required></md-input-container>
+    </div>
+    <div class="reg_input_wrapper">
+        <md-input-container class="reg_input_container">
+            <label>Retype Password</label>
+                <span ng-messages="register_form.pass_re.$error">
+                    <span ng-message="pattern" >Passwords do not match</span>
+                </span>
+            <input type="password" name="pass_re" ng-model="reg.user.password_re" ng-model-options='{debounce:300}' ng-maxlength="12" ng-minlength='5' md-maxlength='12' ng-pattern="reg.user.password" required></md-input-container>
+    </div>
+    <div class="reg_input_wrapper">
+        <button type="submit" ng-disabled="register_form.$invalid" class="btn btn-primary register_btn">
+            Register
+        </button>
+    </div>
+
+</form>
