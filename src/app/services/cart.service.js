@@ -27,5 +27,14 @@ export class cartService{
       let index = this.$localStorage.checked.indexOf(item.id)
       this.$localStorage.checked.splice(index,1)
     }
+    delete() {
+      this.$localStorage.items = []
+      this.$localStorage.checked = []
+    }
     //checkout
+    buyItems(items){
+      let obj = {}
+      obj.items = items
+      return this.$http.post(`/api/bought`,obj).then((res)=>res.data).catch((err)=>err)
+    }
 }

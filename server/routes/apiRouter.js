@@ -1,8 +1,14 @@
 const mongoose                 = require('mongoose')
 const User                     = require('../models/user-model')
+const Buyer                     = require('../models/buyers-model')
 const express                  = require('express')
 const router                   = express.Router()
 const items                    = require('../items.json')
+const jwt                      = require('express-jwt')
+let auth = jwt({
+  secret:'this is the secret',
+  userProperty:'payload'
+})
 module.exports = (passport)=>{
     router.post(`/login`,(req,res,next)=>{
         passport.authenticate('local-login',(err, user,info)=>{
@@ -31,10 +37,23 @@ module.exports = (passport)=>{
             }
         })(req,res,next)
     })
-    router.get(`/items`,(req,res,next)=>{
-        console.log(items)
-        res.status(200)
-        res.json({'items':items})
+    router.get(`/items`,auth,(req,res,next)=>{
+        if(req.payload){
+          res.status(200)
+          res.json({'items':items})
+        }
+
+    })
+    router.post(`/bought`,auth,(req,res,next)=>{
+      if(req.payload){
+        let buyer = new Buyer({
+          _id:mongoose.Types.ObjectId(),
+          buyers_id:req.payload._id,
+          items:req.body.items
+        }).save().then((data)=>{
+          res.json(data)
+        }).catch((err)=>next(err))
+      }
     })
     return router
 }

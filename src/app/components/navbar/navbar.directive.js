@@ -18,6 +18,7 @@ class NavbarController {
         this.logged = false
         this.$state = $state
         this.$mdDialog = $mdDialog
+        this.isCollapsed = false
         this.$scope.$watch(()=>this.$userService.isLoggedIn(),this.checkLogged())
     }
     checkRoute(loc){
@@ -31,7 +32,7 @@ class NavbarController {
       this.$mdDialog.show({
         controller:'cartController',
         controllerAs:'dg',
-        templateUrl: 'app/templates/cartTemplate.html',
+        templateUrl: 'app/components/cart/cartTemplate.html',
         parent: angular.element(document.body),
         targetEvent: event,
         clickOutsideToClose:true
@@ -39,7 +40,6 @@ class NavbarController {
     }
     checkLogged(newVal,oldVal){
       return (newVal,oldVal)=>{
-        console.log(newVal,oldVal)
         if(newVal) this.logged = true
         else{
           this.logged = false

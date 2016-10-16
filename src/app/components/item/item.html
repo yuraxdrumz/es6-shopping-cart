@@ -9,8 +9,8 @@
              <div class="name">{{::item.name}}</div>
              <div class="desc">{{::item.desc}}</div>
           </div>
-          <div class="quantity">
-            <md-slider ng-model="item.getValue" ng-init="item.getValue =1" step="1" min="1" max="10"></md-slider>
+          <div class="quantity" ng-if="!itemCtrl.isChecked(item)">
+            <md-slider ng-model="item.getValue" aria-label="slider" id="red-slider" ng-init="item.getValue =1" step="1" min="1" max="10"></md-slider>
             <div class="">
               Quantity
             </div>

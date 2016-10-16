@@ -1,0 +1,29 @@
+.cart_wrapper{
+  width: 100%;
+  min-height: 70%;
+  display: flex;
+  flex-direction: column;
+  color:white;
+  background: rgba(0,0,0,0.9);
+}
+.item_in_cart{
+  display: flex;
+  flex: 1;
+  color:white;
+  align-items: center;
+  min-height: auto;
+  margin-bottom: 1rem;
+  background: rgba(0, 98, 255, 0.18);
+}
+.wrapper{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.remove_cart_btn{
+  margin-right: 1rem;
+}
+.each_key{
+
+  margin-left: 1rem;
+}

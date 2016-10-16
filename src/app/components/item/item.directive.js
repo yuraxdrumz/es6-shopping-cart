@@ -24,7 +24,7 @@ class itemController {
 
     add(item){
       this.cartService.add(item)
-      this.toastr.success('youre item was successfully added','item added')
+      this.toastr.success('Item was successfully added','item added')
     }
     isChecked(item){
       return this.$localStorage.checked.includes(item.id)
@@ -34,7 +34,7 @@ class itemController {
     }
     remove(item){
       this.cartService.deleteItem(item)
-      this.toastr.warning('your item was successfully removed','item removed')
+      this.toastr.warning('Item was successfully removed','item removed')
 
     }
 }

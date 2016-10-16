@@ -1,4 +1,3 @@
-/* global malarkey:false, moment:false */
 
 import { config } from './index.config';
 import { routerConfig } from './index.route';
@@ -8,10 +7,10 @@ import { loginController } from './components/login/login.controller';
 import { homeController } from './components/logged_home/home.controller';
 import { registerController } from './components/register/register.controller';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
-import { userService } from '../app/services/user.service'
-import { cartService } from '../app/services/cart.service'
-import { itemDirective } from '../app/components/item/item.directive.js'
-import { cartController } from './controllers/cart.controller.js'
+import { userService } from '../app/services/user.service';
+import { cartService } from '../app/services/cart.service';
+import { itemDirective } from '../app/components/item/item.directive.js';
+import { cartController } from './components/cart/cart.controller.js';
 
 angular.module('newProject', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr','ngMaterial','ngStorage'])
   .config(config)
