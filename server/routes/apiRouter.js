@@ -55,5 +55,12 @@ module.exports = (passport)=>{
         }).catch((err)=>next(err))
       }
     })
+    router.get(`/purchases`,auth,(req,res,next)=>{
+      if(req.payload){
+        Buyer.find({buyers_id:req.payload._id}).exec().then((data)=>{
+          console.log(data)
+        }).catch((err)=>next(err))
+      }
+    })
     return router
 }

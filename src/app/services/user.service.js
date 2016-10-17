@@ -54,6 +54,9 @@ export class userService{
 
         })
     }
+    getPurchases(){
+      return this.$http.get(`/api/purchases`).then((res)=>res.data).catch((err)=>err)
+    }
     logout(){
         delete this.$localStorage['mean-token']
         this.$http.defaults.headers.common.Authorization = ''

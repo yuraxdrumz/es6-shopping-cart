@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var conf = require('./conf');
 var browserSync = require('browser-sync');
 var browserSyncSpa = require('browser-sync-spa');
-
+var middleware = require('./proxy.js')
 var util = require('util');
 
 var proxyMiddleware = require('http-proxy-middleware');
@@ -32,8 +32,8 @@ function browserSyncInit(baseDir, browser) {
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
    */
-   server.middleware = proxyMiddleware('/api',{target: 'http://localhost:5000', changeOrigin: true});
-
+   //server.middleware = proxyMiddleware('/api',{target: 'http://localhost:5000', changeOrigin: true});
+  server.middleware = middleware
   browserSync.instance = browserSync.init({
     startPath: '/',
     server: server,

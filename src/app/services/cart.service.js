@@ -9,6 +9,7 @@ export class cartService{
         if(!this.$localStorage.checked){
           this.$localStorage.checked = []
         }
+
     }
     //add
     add(item){
@@ -19,7 +20,7 @@ export class cartService{
         return this.$localStorage.items
     }
     showItems(){
-        return this.$http.get(`/api/items`).then((res)=>res.data.items).catch((err)=>err)
+        return this.$http.get(`/api/items`,{cache:true}).then((res)=>res.data.items).catch((err)=>err)
     }
     //delete
     deleteItem(item){
