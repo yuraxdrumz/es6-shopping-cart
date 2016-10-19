@@ -1,16 +1,15 @@
 export class loginController{
     constructor($timeout, toastr,$log,userService,$state) {
-        'ngInject'
-//        userService.logout()
-
-        this.toastr = toastr;
-        this.login = (user)=>{
-            userService.login(user).then((res)=>{
-               $state.go('home.logged')
-            }).catch((err)=>toastr.error(err.data.message))
-
-        }
-
+      'ngInject'
+      this.toastr = toastr;
+      this.userService = userService
+      this.toastr = toastr
+      this.$state = $state
+    }
+    login(user){
+      this.userService.login(user).then((res)=>{
+        this.$state.go('home.logged')
+      }).catch((err)=>this.toastr.error(err.data.message))
     }
 
 }

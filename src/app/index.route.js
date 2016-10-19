@@ -28,6 +28,17 @@ export function routerConfig($stateProvider, $urlRouterProvider,$locationProvide
                 return cartService.showItems()
             }
         }
+    }).state('home.purchases',{
+      url:'/purchases',
+      templateUrl:'app/components/purchases/purchases.html',
+      controller:'purchaseController',
+      controllerAs:'pur',
+      parent:'home',
+      resolve:{
+        my_purchases:(userService)=>{
+          return userService.getPurchases()
+        }
+      }
     })
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode({

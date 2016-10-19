@@ -1,0 +1,28 @@
+<div class="purchase__top_title">
+  <div>
+    Total Paid for <span class="purchase__strong">{{pur.items_sum}}</span> items <span class="purchase__strong">{{pur.sum}}$</span>
+  </div>
+
+  <button class="btn btn-primary pull-right" ng-click="pur.sortBy()">Sort By Purchase Time</button>
+</div>
+
+<div class="purchase__each_purchase bg-info" ng-repeat="purchase in pur.my_purchases | limitTo:pur.limit track by purchase._id">
+  <div class="purchase__title"> Bought on <span class="purchase__strong">{{::purchase.date}}</span>
+    a total of <span class="purchase__strong">{{::purchase.items.length}} items</span>
+
+   </div>
+
+  <div class="purchase__each_item" ng-repeat="item in ::purchase.items">
+    <img ng-src="{{::item.image}}" alt="">
+    <div class="purchase__name"> <span class="purchase__strong">Name</span>  <div>{{::item.name}}</div></div>
+    <div class="purchase__desc"><span class="purchase__strong">Description</span>  <div>{{::item.desc}}</div></div>
+    <div class="purchase__getValue"><span class="purchase__strong">Quantity</span> <div>{{::item.getValue}}</div></div>
+    <div class="purchase__price"><span class="purchase__strong">Total price</span> <div>{{::item.price*item.getValue}}$</div></div>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <button type="button" class="btn btn-primary" ng-click="pur.loadMore()" name="button">Load More</button>
+  </div>
+</div>

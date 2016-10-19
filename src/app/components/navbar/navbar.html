@@ -17,7 +17,7 @@
         <div collapse class="collapse navbar-collapse" uib-collapse="!vm.isCollapsed" id="navnav">
             <ul class="nav navbar-nav navbar-right">
                 <li ng-if="!vm.logged" ng-class='{active:vm.checkRoute("/register")}'><a ui-sref="home.register">Register</a></li>
-                <li ng-if="vm.logged" class="navbar_logout"><a>Purchases</a></li>
+                <li ng-if="vm.logged" class="navbar_logout"><a ui-sref="home.purchases">Purchases</a></li>
                 <li ng-if="vm.logged" class="navbar_logout"><a ng-click="vm.logout()">Logout</a></li>
             </ul>
         </div>

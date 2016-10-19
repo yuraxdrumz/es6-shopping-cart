@@ -1,0 +1,35 @@
+.purchase__each_purchase{
+  margin-bottom: 1rem;
+}
+.purchase__strong{
+  font-weight:600;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.purchase__title{
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.purchase__info{
+  display: flex;
+  justify-content: space-around;
+}
+.purchase__each_item{
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  font-size:1.5rem;
+}
+.purchase__name,.purchase__desc,.purchase__price,.purchase__getValue{
+  @extend .purchase__each_item;
+  flex-direction: column;
+  text-align: center;
+}
+.purchase__top_title{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size:2rem ;
+}

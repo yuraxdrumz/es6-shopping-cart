@@ -11,6 +11,8 @@ import { userService } from '../app/services/user.service';
 import { cartService } from '../app/services/cart.service';
 import { itemDirective } from '../app/components/item/item.directive.js';
 import { cartController } from './components/cart/cart.controller.js';
+import { purchaseController } from './components/purchases/purchases.controller.js';
+
   angular.module('newProject', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr','ngMaterial','ngStorage'])
     .constant('moment', moment)
     .config(config)
@@ -23,5 +25,6 @@ import { cartController } from './components/cart/cart.controller.js';
     .controller('homeController',homeController)
     .controller('registerController',registerController)
     .controller('cartController',cartController)
+    .controller('purchaseController',purchaseController)
     .directive('acmeNavbar', NavbarDirective)
     .directive('itemDir', itemDirective)
