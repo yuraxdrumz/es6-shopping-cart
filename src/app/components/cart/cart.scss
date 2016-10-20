@@ -1,13 +1,13 @@
-.cart_wrapper{
+.cart__wrapper{
   width: 100%;
   min-height: 70%;
-  display: flex;
+  display: $disp;
   flex-direction: column;
   color:white;
   background: rgba(0,0,0,0.9);
 }
-.item_in_cart{
-  display: flex;
+.cart__item_in_cart{
+  display: $disp;
   flex: 1;
   color:white;
   align-items: center;
@@ -15,16 +15,15 @@
   margin-bottom: 1rem;
   background: rgba(0, 98, 255, 0.18);
 }
-.wrapper{
-  display: flex;
+.cart__second_wrapper{
+  display: $disp;
   flex: 1;
   flex-direction: column;
 }
-.remove_cart_btn{
+.cart__remove_cart_btn{
   margin-right: 1rem;
 }
-.each_key{
-
+.cart__each_key{
   margin-left: 1rem;
 }
 

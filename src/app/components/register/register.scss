@@ -1,19 +1,19 @@
 
-.reg_input_container{
+.reg__input_container{
     width:40%;
 
 }
-.register_form{
+.reg__form{
     margin-top: 10%;
-    display: flex;
+    display: $disp;
     flex: 1;
     flex-direction: column;
 }
-.reg_input_wrapper{
-    display: flex;
+.reg__input_wrapper{
+    display: $disp;
     flex: 1;
-    justify-content: center;
+    justify-content: $center_place;
 }
-.register_btn{
-    width:40%;
+.reg__btn{
+    @extend .reg__input_container
 }

@@ -3,12 +3,8 @@ export class cartService{
         'ngInject';
         this.$http = $http
         this.$localStorage  = $localStorage
-        if(!this.$localStorage.items){
-            this.$localStorage.items = []
-        }
-        if(!this.$localStorage.checked){
-          this.$localStorage.checked = []
-        }
+        if(!this.$localStorage.items) this.$localStorage.items = []
+        if(!this.$localStorage.checked) this.$localStorage.checked = []
 
     }
     //add

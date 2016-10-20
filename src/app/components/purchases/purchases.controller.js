@@ -1,7 +1,6 @@
 export class purchaseController {
   constructor(my_purchases,moment,orderByFilter) {
     'ngInject'
-
     this.my_purchases = my_purchases
     this.limit = 5
     this.moment = moment
@@ -23,8 +22,6 @@ export class purchaseController {
   totalPaidAndTotalItems(){
     let sum = 0
     let items_sum = 0
-    let obj = {}
-
     for(let purchase of this.my_purchases){
       for(let item of purchase.items){
         sum+=(item.price*item.getValue)
@@ -33,11 +30,9 @@ export class purchaseController {
     }
     this.sum = sum
     this.items_sum = items_sum
-
   }
   sortBy(){
     this.reverse = !this.reverse
     this.my_purchases = this.orderByFilter(this.my_purchases,this.sortWith,this.reverse)
   }
-
 }

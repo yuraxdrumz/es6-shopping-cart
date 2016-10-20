@@ -36,6 +36,7 @@ export function routerConfig($stateProvider, $urlRouterProvider,$locationProvide
       parent:'home',
       resolve:{
         my_purchases:(userService)=>{
+          'ngInject'
           return userService.getPurchases()
         }
       }
@@ -44,5 +45,5 @@ export function routerConfig($stateProvider, $urlRouterProvider,$locationProvide
     $locationProvider.html5Mode({
         enabled: true,
         requireBase: false
-    });
+    })
 }

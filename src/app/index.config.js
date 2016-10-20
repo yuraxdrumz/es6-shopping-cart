@@ -7,7 +7,4 @@ export function config ($logProvider, toastrConfig) {
   toastrConfig.timeOut = 1000;
   toastrConfig.positionClass = 'toast-top-right';
   // toastrConfig.progressBar = true;
-
-
-
 }

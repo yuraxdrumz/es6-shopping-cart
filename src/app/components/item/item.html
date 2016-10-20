@@ -1,27 +1,27 @@
 
 <div ng-repeat="item in itemCtrl.items | limitTo:itemCtrl.limit track by item.id">
   <div class="row">
-      <div class="col-lg-12 each_item">
-          <div class="image">
+      <div class="col-lg-12 item__each_item">
+          <div class="item__image">
              <img ng-src="{{::item.image}}" alt="">
           </div>
-          <div class="desc_container">
-             <div class="name">{{::item.name}}</div>
-             <div class="desc">{{::item.desc}}</div>
+          <div class="item__desc_container">
+             <div class="item__item_name">{{::item.name}}</div>
+             <div class="item__item_desc">{{::item.desc}}</div>
           </div>
-          <div class="quantity" ng-if="!itemCtrl.isChecked(item)">
+          <div class="item__quantity" ng-if="!itemCtrl.isChecked(item)">
             <md-slider ng-model="item.getValue" aria-label="slider" id="red-slider" ng-init="item.getValue =1" step="1" min="1" max="10"></md-slider>
             <div class="">
               Quantity
             </div>
             {{item.getValue}}
           </div>
-          <div class="price">
+          <div class="item__price">
               {{::item.price}}$
           </div>
-          <div class="btn_holder">
-              <button ng-if="!itemCtrl.isChecked(item)" class="btn btn-primary cart_btn" ng-click="itemCtrl.add(item)">Add To Cart</button>
-              <button ng-if="itemCtrl.isChecked(item)" class="btn btn-danger cart_btn" ng-click="itemCtrl.remove(item)">Remove</button>
+          <div class="item__btn_holder">
+              <button ng-if="!itemCtrl.isChecked(item)" class="btn btn-primary item__cart_btn" ng-click="itemCtrl.add(item)">Add To Cart</button>
+              <button ng-if="itemCtrl.isChecked(item)" class="btn btn-danger item__cart_btn" ng-click="itemCtrl.remove(item)">Remove</button>
           </div>
       </div>
   </div>

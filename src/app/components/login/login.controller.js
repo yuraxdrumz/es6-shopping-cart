@@ -3,7 +3,6 @@ export class loginController{
       'ngInject'
       this.toastr = toastr;
       this.userService = userService
-      this.toastr = toastr
       this.$state = $state
     }
     login(user){
@@ -11,5 +10,4 @@ export class loginController{
         this.$state.go('home.logged')
       }).catch((err)=>this.toastr.error(err.data.message))
     }
-
 }

@@ -1,5 +1,5 @@
-.login_form{
-    display: flex;
+.login__form{
+    display: $disp;
     margin-top: 15%;
     flex-direction: column;
 //    background: rgba(0, 0, 0, 0.4);
@@ -7,18 +7,18 @@
 //    margin-left: auto;
 //    margin-right: auto;
 }
-.err_messages{
+.login__err_messages{
     color:red;
     margin-top: 1rem;
 }
-.login_input_container{
+.login__input_container{
     width: 40%;
 }
-.login_input_wrapper{
-    display: flex;
+.login__input_wrapper{
+    display: $disp;
     flex: 1;
-    justify-content: center;
+    justify-content:$center_place;
 }
-.login_btn{
+.login__btn{
     width: 40%;
 }

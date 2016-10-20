@@ -1,6 +1,6 @@
 export class MainController {
     constructor() {
-        'ngInject'
-
+      'ngInject'
+      this.checkInheritance = 11
     }
 }

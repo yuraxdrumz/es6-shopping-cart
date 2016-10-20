@@ -1,14 +1,15 @@
 export function NavbarDirective() {
     'ngInject';
     let directive = {
-        restrict: 'E'
-        , templateUrl: 'app/components/navbar/navbar.html'
-        , controller: NavbarController
-        , controllerAs: 'vm'
-        , bindToController: true
-    };
-    return directive;
+        restrict: 'E',
+        templateUrl: 'app/components/navbar/navbar.html',
+        controller: NavbarController,
+        controllerAs: 'vm',
+        bindToController: true
+    }
+    return directive
 }
+
 class NavbarController {
     constructor($log, $location,$scope,userService,$state,toastr,cartService,$mdDialog) {
         'ngInject';
@@ -43,6 +44,7 @@ class NavbarController {
         if(newVal) this.logged = true
         else{
           this.logged = false
+          this.$state.go('home.login')
         }
       }
     }

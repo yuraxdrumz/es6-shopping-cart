@@ -1,15 +1,15 @@
 export function itemDirective() {
     'ngInject';
     let directive = {
-        restrict: 'E'
-        , templateUrl: 'app/components/item/item.html'
-        , controller: itemController
-        , controllerAs: 'itemCtrl'
-        , bindToController: true,
+        restrict: 'E',
+        templateUrl: 'app/components/item/item.html',
+        controller: itemController,
+        controllerAs: 'itemCtrl',
+        bindToController: true,
         scope:{
             items:'='
         }
-    };
+    }
     return directive;
 }
 class itemController {
@@ -21,7 +21,6 @@ class itemController {
         this.$localStorage = $localStorage
         this.toastr = toastr
     }
-
     add(item){
       this.cartService.add(item)
       this.toastr.success('Item was successfully added','item added')
@@ -35,6 +34,5 @@ class itemController {
     remove(item){
       this.cartService.deleteItem(item)
       this.toastr.warning('Item was successfully removed','item removed')
-
     }
 }

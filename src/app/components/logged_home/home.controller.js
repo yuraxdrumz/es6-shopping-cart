@@ -1,9 +1,6 @@
 export class homeController{
-    constructor($timeout,toastr,$log,userService,$state,items) {
-        'ngInject'
-        this.userService = userService
-        this.items = items
-
-
-    }
+  constructor($timeout,toastr,$log,$state,items) {
+    'ngInject'
+    this.items = items
+  }
 }

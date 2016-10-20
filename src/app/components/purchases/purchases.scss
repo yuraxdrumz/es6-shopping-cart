@@ -8,27 +8,27 @@
 }
 .purchase__title{
   font-size: 2rem;
-  display: flex;
-  justify-content: center;
+  display: $disp;
+  justify-content: $center_place;
 }
 .purchase__info{
-  display: flex;
+  display: $disp;
   justify-content: space-around;
 }
 .purchase__each_item{
-  display: flex;
-  align-items: center;
+  display: $disp;
+  align-items: $center_place;
   flex: 1;
-  justify-content: center;
+  justify-content: $center_place;
   font-size:1.5rem;
 }
 .purchase__name,.purchase__desc,.purchase__price,.purchase__getValue{
   @extend .purchase__each_item;
   flex-direction: column;
-  text-align: center;
+  text-align: $center_place;
 }
 .purchase__top_title{
-  display: flex;
+  display: $disp;
   justify-content: space-between;
   margin-bottom: 1rem;
   font-size:2rem ;
