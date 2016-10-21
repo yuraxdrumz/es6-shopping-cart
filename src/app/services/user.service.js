@@ -39,7 +39,10 @@ export class userService{
   }
   register(user){
       return this.$http.post(`/api/register`,user)
-       .then((res)=>this.saveToken(res.data.token))
+       .then((res)=>{
+         this.saveToken(res.data.token)
+         this.$http.defaults.headers.common.Authorization = 'Bearer ' + res.data.token
+       })
   }
   login(user){
       return this.$http.post(`/api/login`,user)
