@@ -4,6 +4,9 @@ export function NavbarDirective() {
     restrict: 'E',
     templateUrl: 'app/components/navbar/navbar.html',
     controller: NavbarController,
+    scope:{
+      currencies:'='
+    },
     controllerAs: 'vm',
     bindToController: true
   }
@@ -24,12 +27,12 @@ class NavbarController {
     this.$mdDialog = $mdDialog
     this.isCollapsed = false
     this.$scope.$watch(()=>this.$userService.isLoggedIn(),this.checkLogged())
-    $timeout(()=>this.curs = this.$localStorage.cur.rates,1000)
   }
   checkRoute(loc){
     return loc===this.$location.path()
   }
-  changeBase(key,val){
+  changeBase(event,key,val){
+    event.preventDefault()
     this.currencyService.changeBase(key,val)
   }
   logout(){
@@ -46,7 +49,7 @@ class NavbarController {
       clickOutsideToClose:true
     })
   }
-  checkLogged(newVal,oldVal){
+  checkLogged(){
     return (newVal,oldVal)=>{
       if(newVal) this.logged = true
       else{

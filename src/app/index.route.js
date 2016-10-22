@@ -4,7 +4,25 @@ export function routerConfig($stateProvider, $urlRouterProvider,$locationProvide
     url: '',
     templateUrl: 'app/components/main/main.html',
     controller:'MainController',
-    controllerAs:'main'
+    controllerAs:'main',
+    resolve:{
+      currenciesToShow:(currencyService,$localStorage)=>{
+        'ngInject'
+        return currencyService.get().then((res)=>{
+          if($localStorage.cur){
+            res.base = $localStorage.cur.base
+            res.rates['USD'] = 1
+            $localStorage.cur = res
+            }
+          else{
+            res.base = {}
+            res.base['USD'] = 1
+            $localStorage.cur = res
+            }
+          return res
+        }).catch((err)=>err)
+      }
+    }
   }).state('home.login', {
     url: '/'
     , templateUrl: 'app/components/login/login.html'

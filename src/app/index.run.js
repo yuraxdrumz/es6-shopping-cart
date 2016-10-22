@@ -1,8 +1,10 @@
 export function runBlock ($log,userService,$localStorage,$http,$rootScope,$location) {
   'ngInject';
-  $rootScope.Utils = {
-    keys : Object.keys
-  }
+
+  // this is used to connect object methods to use inside templates in angular, in order to call these methods in isolated scope
+  // you must pass it to the constructor.prototype!
+  $rootScope.constructor.prototype.keys = Object.keys
+
   if(userService.isLoggedIn()){
       $http.defaults.headers.common.Authorization = 'Bearer ' + userService.getToken()
   }

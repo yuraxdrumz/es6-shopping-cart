@@ -15,11 +15,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li uib-dropdown class="navbar__currency_dropdown" ng-if="vm.logged">
           <a href id="simple-dropdown" uib-dropdown-toggle>
-            Currency:{{Utils.keys(vm.$localStorage.cur.base)[0]}}
+            Currency:{{keys(vm.$localStorage.cur.base)[0]}}
           </a>
           <ul class="dropdown-menu navbar__inside_dropdown" uib-dropdown-menu aria-labelledby="simple-dropdown">
-            <li ng-repeat="(key,val) in vm.curs">
-              <a ng-click="vm.changeBase(key,val)">{{key}}</a>
+            <li ng-repeat="(key,val) in vm.currencies.rates">
+              <a href="#" ng-click="vm.changeBase($event,key,val)">{{key}}</a>
             </li>
 
           </ul>

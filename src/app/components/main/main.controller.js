@@ -1,5 +1,6 @@
 export class MainController {
-    constructor() {
+    constructor(currenciesToShow) {
       'ngInject'
+      this.currencies = currenciesToShow
     }
 }

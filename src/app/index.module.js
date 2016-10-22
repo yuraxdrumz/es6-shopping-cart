@@ -16,11 +16,10 @@ import { currencyFilter } from './filters/currency.filter'
 import { currencyService } from './services/currency.service'
 
   angular.module('newProject', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr','ngMaterial','ngStorage'])
+    .run(runBlock)
     .constant('moment', moment)
     .config(config)
     .config(routerConfig)
-    .run(runBlock)
-
     .service('userService',userService)
     .service('cartService',cartService)
     .service('currencyService',currencyService)
