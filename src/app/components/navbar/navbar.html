@@ -1,26 +1,34 @@
 <nav class="navbar navbar-static-top navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" ng-click="vm.isCollapsed = !vm.isCollapsed" data-toggle="collapse" data-target="#navnav">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a ng-if="!vm.logged" class="navbar-brand" ui-sref="home.login"> <span class="">Home</span> </a>
-            <a ng-if="vm.logged" class="navbar-brand" ui-sref="home.logged"> <span class="">Home</span> </a>
-            <a ng-if="vm.logged" class="shop_cart" ng-click="vm.showCart($event)"><i class="material-icons">shopping_basket</i> </a>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" ng-click="vm.isCollapsed = !vm.isCollapsed" data-toggle="collapse" data-target="#navnav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a ng-if="!vm.logged" class="navbar-brand" ui-sref="home.login"> <span class="">Home</span> </a>
+      <a ng-if="vm.logged" class="navbar-brand" ui-sref="home.logged"> <span class="">Home</span> </a>
+      <a ng-if="vm.logged" class="shop_cart" ng-click="vm.showCart($event)"><i class="material-icons navbar__shop_icon">shopping_basket</i> </a>
 
-
-        </div>
-
-
-        <div collapse class="collapse navbar-collapse" uib-collapse="!vm.isCollapsed" id="navnav">
-            <ul class="nav navbar-nav navbar-right">
-                <li ng-if="!vm.logged" ng-class='{active:vm.checkRoute("/register")}'><a ui-sref="home.register">Register</a></li>
-                <li ng-if="vm.logged" class="navbar_logout"><a ui-sref="home.purchases">Purchases</a></li>
-                <li ng-if="vm.logged" class="navbar_logout"><a ng-click="vm.logout()">Logout</a></li>
-            </ul>
-        </div>
     </div>
+    <div collapse class="collapse navbar-collapse" uib-collapse="!vm.isCollapsed" id="navnav">
+      <ul class="nav navbar-nav navbar-right">
+        <li uib-dropdown class="navbar__currency_dropdown" ng-if="vm.logged">
+          <a href id="simple-dropdown" uib-dropdown-toggle>
+            Currency:{{Utils.keys(vm.$localStorage.cur.base)[0]}}
+          </a>
+          <ul class="dropdown-menu navbar__inside_dropdown" uib-dropdown-menu aria-labelledby="simple-dropdown">
+            <li ng-repeat="(key,val) in vm.curs">
+              <a ng-click="vm.changeBase(key,val)">{{key}}</a>
+            </li>
+
+          </ul>
+        </li>
+        <li ng-if="!vm.logged" ng-class='{active:vm.checkRoute("/register")}'><a ui-sref="home.register">Register</a></li>
+        <li ng-if="vm.logged" ng-class='{active:vm.checkRoute("/purchases")}' class="navbar_logout"><a ui-sref="home.purchases">Purchases</a></li>
+        <li ng-if="vm.logged" class="navbar_logout"><a ng-click="vm.logout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 

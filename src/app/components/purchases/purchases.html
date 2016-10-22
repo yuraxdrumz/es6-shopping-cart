@@ -1,6 +1,6 @@
 <div class="purchase__top_title">
   <div>
-    Total Paid for <span class="purchase__strong">{{pur.items_sum}}</span> items <span class="purchase__strong">{{pur.sum}}$</span>
+    Total Paid for <span class="purchase__strong">{{pur.items_sum}}</span> items <span class="purchase__strong">{{pur.sum | currencyFilter:pur.$localStorage.cur.base}}</span>
   </div>
 
   <button class="btn btn-primary pull-right" ng-click="pur.sortBy()">Sort By Purchase Time</button>
@@ -17,7 +17,8 @@
     <div class="purchase__name"> <span class="purchase__strong">Name</span>  <div>{{::item.name}}</div></div>
     <div class="purchase__desc"><span class="purchase__strong">Description</span>  <div>{{::item.desc}}</div></div>
     <div class="purchase__getValue"><span class="purchase__strong">Quantity</span> <div>{{::item.getValue}}</div></div>
-    <div class="purchase__price"><span class="purchase__strong">Total price</span> <div>{{::item.price*item.getValue}}$</div></div>
+    <div class="purchase__price_for_one"><span class="purchase__strong">Price for single item</span> <div>{{item.price | currencyFilter:pur.$localStorage.cur.base}}</div></div>
+    <div class="purchase__price"><span class="purchase__strong">Total price</span> <div>{{item.price*item.getValue | currencyFilter:pur.$localStorage.cur.base}}</div></div>
 
   </div>
 </div>

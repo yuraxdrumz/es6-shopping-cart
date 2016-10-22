@@ -1,5 +1,8 @@
 export function runBlock ($log,userService,$localStorage,$http,$rootScope,$location) {
   'ngInject';
+  $rootScope.Utils = {
+    keys : Object.keys
+  }
   if(userService.isLoggedIn()){
       $http.defaults.headers.common.Authorization = 'Bearer ' + userService.getToken()
   }

@@ -1,6 +1,6 @@
 
 <div ng-repeat="item in itemCtrl.items | limitTo:itemCtrl.limit track by item.id">
-  <div class="row">
+
       <div class="col-lg-12 item__each_item">
           <div class="item__image">
              <img ng-src="{{::item.image}}" alt="">
@@ -9,15 +9,15 @@
              <div class="item__item_name">{{::item.name}}</div>
              <div class="item__item_desc">{{::item.desc}}</div>
           </div>
-          <div class="item__quantity" ng-if="!itemCtrl.isChecked(item)">
-            <md-slider ng-model="item.getValue" aria-label="slider" id="red-slider" ng-init="item.getValue =1" step="1" min="1" max="10"></md-slider>
+          <div class="item__quantity" >
+            <md-slider ng-disabled="itemCtrl.isChecked(item)" ng-model="item.getValue" aria-label="slider" id="red-slider" ng-init="item.getValue = item.getValue || 1" step="1" min="1" max="10"></md-slider>
             <div class="">
               Quantity
             </div>
             {{item.getValue}}
           </div>
           <div class="item__price">
-              {{::item.price}}$
+              {{item.price*item.getValue | currencyFilter:itemCtrl.$localStorage.cur.base}}
           </div>
           <div class="item__btn_holder">
               <button ng-if="!itemCtrl.isChecked(item)" class="btn btn-primary item__cart_btn" ng-click="itemCtrl.add(item)">Add To Cart</button>
@@ -25,7 +25,7 @@
           </div>
       </div>
   </div>
-</div>
+
 <div class="row">
   <div class="col-lg-12 text-center">
     <button type="button" class="btn btn-primary" ng-click="itemCtrl.loadMore()" name="button">Load More</button>

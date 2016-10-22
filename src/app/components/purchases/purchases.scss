@@ -20,9 +20,9 @@
   align-items: $center_place;
   flex: 1;
   justify-content: $center_place;
-  font-size:1.5rem;
+  font-size:$f_size;
 }
-.purchase__name,.purchase__desc,.purchase__price,.purchase__getValue{
+.purchase__name,.purchase__desc,.purchase__price,.purchase__getValue,.purchase__price_for_one{
   @extend .purchase__each_item;
   flex-direction: column;
   text-align: $center_place;

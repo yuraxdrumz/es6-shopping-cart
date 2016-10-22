@@ -2,6 +2,7 @@
     background: rgba(0, 98, 255, 0.18);
     margin-bottom: 1rem;
     display: $disp;
+    font-size: $f_size;
 }
 .item__item_name,.item__item_desc{
     color:black;
@@ -12,7 +13,7 @@
 }
 .item__price{
     @extend .item__image;
-    flex: 1;
+    flex: 2;
     align-items: $center_place;
     justify-content: $center_place;
     font-weight: 600;

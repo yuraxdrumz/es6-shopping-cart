@@ -12,14 +12,18 @@ import { cartService } from '../app/services/cart.service';
 import { itemDirective } from '../app/components/item/item.directive.js';
 import { cartController } from './components/cart/cart.controller.js';
 import { purchaseController } from './components/purchases/purchases.controller.js';
+import { currencyFilter } from './filters/currency.filter'
+import { currencyService } from './services/currency.service'
 
   angular.module('newProject', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr','ngMaterial','ngStorage'])
     .constant('moment', moment)
     .config(config)
     .config(routerConfig)
     .run(runBlock)
+
     .service('userService',userService)
     .service('cartService',cartService)
+    .service('currencyService',currencyService)
     .controller('MainController', MainController)
     .controller('loginController',loginController)
     .controller('homeController',homeController)
@@ -28,3 +32,4 @@ import { purchaseController } from './components/purchases/purchases.controller.
     .controller('purchaseController',purchaseController)
     .directive('acmeNavbar', NavbarDirective)
     .directive('itemDir', itemDirective)
+    .filter('currencyFilter',currencyFilter)

@@ -1,5 +1,9 @@
 .acme-navbar-text{
   color: white;
+
+}
+.navbar__currency_dropdown{
+  color: #5AADBB;
 }
 
 a {
@@ -28,3 +32,14 @@ a:hover, a:focus {
   height: 50px;
   cursor: pointer;
 }
+.navbar__shop_icon{
+  color: #5AADBB;
+  &:hover{
+    color: white;
+  }
+}.navbar{
+   font-size: $f_size;
+ }
+ .navbar-brand{
+   font-size: $f_size;
+ }

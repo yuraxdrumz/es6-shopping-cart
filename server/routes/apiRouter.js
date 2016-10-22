@@ -28,6 +28,7 @@ module.exports = (passport)=>{
             let token
             if(err) {res.status(504).json(err)}
             if(user){
+                console.log(user)
                 token = user.generateJwt()
                 res.status(200)
                 res.json({'token':token})
@@ -40,8 +41,6 @@ module.exports = (passport)=>{
         if(req.payload){
           res.status(200)
           res.json({'items':items})
-        }else{
-          next()
         }
 
     })

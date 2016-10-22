@@ -1,6 +1,7 @@
 export class purchaseController {
-  constructor(my_purchases,moment,orderByFilter) {
+  constructor(my_purchases,moment,orderByFilter,$localStorage) {
     'ngInject'
+    this.$localStorage = $localStorage
     this.my_purchases = my_purchases
     this.limit = 5
     this.moment = moment
@@ -16,7 +17,7 @@ export class purchaseController {
   }
   parseDates(){
     for(let pur of this.my_purchases){
-      pur.date = (this.moment(pur.date).format('DD/MM/YYYY - hh:mm:ss'))
+      pur.date = (this.moment(pur.date).format('DD/MM/YYYY - HH:mm:ss'))
     }
   }
   totalPaidAndTotalItems(){

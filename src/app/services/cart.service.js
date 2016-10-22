@@ -20,7 +20,8 @@ export class cartService{
     }
     //delete
     deleteItem(item){
-      this.$localStorage.items.splice(item,1)
+      let itemIndex = this.$localStorage.items.indexOf(item)
+      this.$localStorage.items.splice(itemIndex,1)
       let index = this.$localStorage.checked.indexOf(item.id)
       this.$localStorage.checked.splice(index,1)
     }

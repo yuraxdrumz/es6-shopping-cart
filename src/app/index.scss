@@ -2,11 +2,13 @@
  *  If you want to override some bootstrap variables, you have to change values here.
  *  The list of variables are listed here bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
  */
+@import url('https://fonts.googleapis.com/css?family=Kalam');
 $navbar-inverse-link-color: #5AADBB;
 $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
 
 $disp:flex;
 $center_place:center;
+$f_size:1.5rem;
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies
@@ -14,10 +16,14 @@ $center_place:center;
 // bower:scss
 // endbower
 html,body{
-    min-height: 100%;
-//    background: url(../assets/images/shopping-whats-on.jpg) 50% 50% no-repeat;
-//    background-size: cover;
-
+  min-height: 100%;
+  font-family: 'Kalam', cursive;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+.btn{
+  font-size: $f_size;
 }
 .browsehappy {
   margin: 0.2em 0;
