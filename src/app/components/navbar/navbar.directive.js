@@ -16,6 +16,8 @@ export function NavbarDirective() {
 class NavbarController {
   constructor($location,$log,$scope,userService,$state,toastr,cartService,$mdDialog,currencyService,$localStorage,$timeout) {
     'ngInject';
+    this.cartService = cartService
+    this.notifications = this.cartService.getAll().length
     this.currencyService = currencyService
     this.$localStorage = $localStorage
     this.$userService = userService
@@ -27,6 +29,12 @@ class NavbarController {
     this.$mdDialog = $mdDialog
     this.isCollapsed = false
     this.$scope.$watch(()=>this.$userService.isLoggedIn(),this.checkLogged())
+    this.$scope.$watch(()=>this.cartService.getAll().length,this.checkNotifications())
+  }
+  checkNotifications(){
+    return(newVal,oldVal)=>{
+      this.notifications = newVal
+    }
   }
   checkRoute(loc){
     return loc===this.$location.path()

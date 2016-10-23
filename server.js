@@ -1,13 +1,16 @@
 const express              = require('express')
 const app                  = express()
+const http                 = require('http').Server(app)
+const io                   = require('socket.io')(http)
 const port                 = process.env.PORT || 5000
 const morgan               = require('morgan')
 const mongoose             = require('mongoose')
 const bodyParser           = require('body-parser')
 const passport             = require('passport')
 const apiRouter            = require('./server/routes/apiRouter')(passport)
+                             require('./server/config/passport')(passport)
+                             require('./server/routes/socketsRouter')(io)
 mongoose.Promise           = require('bluebird')
-                             require('./server/config/passport')(passport);
 mongoose.connect('mongodb://localhost/cart')
 
 let con = mongoose.connection
@@ -28,4 +31,4 @@ con.on('open',()=>{
     //})
 })
 
-app.listen(port,()=>console.log(`server is running on port ${port}`))
+http.listen(port,()=>console.log(`server is running on port ${port}`))

@@ -14,6 +14,7 @@ import { cartController } from './components/cart/cart.controller.js';
 import { purchaseController } from './components/purchases/purchases.controller.js';
 import { currencyFilter } from './filters/currency.filter'
 import { currencyService } from './services/currency.service'
+import { socketService } from './services/socket.service'
 
   angular.module('newProject', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr','ngMaterial','ngStorage'])
     .run(runBlock)
@@ -23,6 +24,7 @@ import { currencyService } from './services/currency.service'
     .service('userService',userService)
     .service('cartService',cartService)
     .service('currencyService',currencyService)
+    .service('socketService',socketService)
     .controller('MainController', MainController)
     .controller('loginController',loginController)
     .controller('homeController',homeController)
@@ -32,3 +34,4 @@ import { currencyService } from './services/currency.service'
     .directive('acmeNavbar', NavbarDirective)
     .directive('itemDir', itemDirective)
     .filter('currencyFilter',currencyFilter)
+

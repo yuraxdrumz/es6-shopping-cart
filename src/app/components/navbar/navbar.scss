@@ -5,7 +5,19 @@
 .navbar__currency_dropdown{
   color: #5AADBB;
 }
-
+.navbar__notification{
+  position: absolute;
+  top: 2rem;
+  left: 8rem;
+  height: 1rem;
+  display: flex;
+  background: red;
+  width: 1rem;
+  justify-content: center;
+  border-radius: 50%;
+  align-items: center;
+  font-size: 1rem;
+}
 a {
   color: black;
 }

@@ -1,9 +1,12 @@
 export class loginController{
-    constructor($timeout, toastr,$log,userService,$state) {
+    constructor($timeout, toastr,$log,userService,$state,socketService) {
       'ngInject'
       this.toastr = toastr;
       this.userService = userService
       this.$state = $state
+      socketService.remove()
+      socketService.count = 0
+
     }
     login(user){
       this.userService.login(user).then((res)=>{

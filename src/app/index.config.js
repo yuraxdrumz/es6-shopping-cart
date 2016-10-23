@@ -4,7 +4,9 @@ export function config ($logProvider, toastrConfig) {
   $logProvider.debugEnabled(true);
   // Set options third-party lib
   toastrConfig.allowHtml = true;
-  toastrConfig.timeOut = 1000;
+  toastrConfig.timeOut = 2000;
   toastrConfig.positionClass = 'toast-top-right';
+  //toastrConfig.preventOpenDuplicates = true;
+  toastrConfig.newestOnTop = true;
   // toastrConfig.progressBar = true;
 }
