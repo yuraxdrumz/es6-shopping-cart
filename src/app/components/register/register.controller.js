@@ -9,6 +9,6 @@ export class registerController {
       this.userService.register(user).then((res)=>{
         this.toastr.success('Account was successfully created')
         this.$state.go('home.logged')
-      }).catch((err)=>toastr.error(err.data.message))
+      }).catch((err)=>this.toastr.error(err.data.message))
     }
 }

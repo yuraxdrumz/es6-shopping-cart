@@ -16,6 +16,10 @@ export function NavbarDirective() {
 class NavbarController {
   constructor($location,$log,$scope,userService,$state,toastr,cartService,$mdDialog,currencyService,$localStorage,$timeout,socketService) {
     'ngInject';
+    this.$timeout = $timeout
+    this.tooltip = true
+    this.$timeout(()=>this.tooltip = false,2000)
+    this.cartFromLastTime = 'asdasd'
     this.cartService = cartService
     this.currencyService = currencyService
     this.$localStorage = $localStorage
@@ -41,7 +45,7 @@ class NavbarController {
     let data = {}
     let {base} = this.$localStorage.cur
     data.items = this.$localStorage.items
-    data.base = Object.keys(base)[0]
+    data.base = base
     data.user_id = this.$userService.currentUser()._id
     this.socketService.emit('collectData',data)
     this.$userService.logout()

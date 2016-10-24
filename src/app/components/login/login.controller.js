@@ -6,7 +6,6 @@ export class loginController{
       this.$state = $state
       this.socketService = socketService
       this.socketService.count = 0
-
     }
     login(user){
       this.userService.login(user).then((res)=>{

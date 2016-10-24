@@ -13,15 +13,18 @@ export function itemDirective() {
   return directive;
 }
 class itemController {
-  constructor($log,cartService,$localStorage,toastr) {
+  constructor($log,cartService,$localStorage,toastr,$timeout) {
     'ngInject';
     this.cartService = cartService
     this.limit = 5
     this.$log = $log
     this.$localStorage = $localStorage
     this.toastr = toastr
-    this.checkAfterRefresh = this.cartService.getAll()
-    this.getQuantityAfterRefresh()
+    this.$timeout = $timeout
+    this.$timeout(()=>{
+      this.checkAfterRefresh = this.cartService.getAll()
+      this.getQuantityAfterRefresh()
+    },100)
   }
   getQuantityAfterRefresh(){
     for(let item of this.checkAfterRefresh){

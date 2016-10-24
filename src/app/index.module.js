@@ -16,7 +16,7 @@ import { currencyFilter } from './filters/currency.filter'
 import { currencyService } from './services/currency.service'
 import { socketService } from './services/socket.service'
 
-  angular.module('newProject', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr','ngMaterial','ngStorage'])
+  angular.module('newProject', ['ngAnimate','720kb.tooltips', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr','ngMaterial','ngStorage'])
     .run(runBlock)
     .constant('moment', moment)
     .config(config)

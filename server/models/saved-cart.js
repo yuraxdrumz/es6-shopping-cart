@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 let favCartSchema = new mongoose.Schema({
   _id:mongoose.Schema.Types.ObjectId,
   buyers_id:String,
-  base:String,
+  base:Object,
   items:Array,
   date:{type:Date,default:Date.now}
 })
