@@ -4,18 +4,13 @@ export class socketService {
     this.socket = io('http://localhost:5000')
     this.$rootScope = $rootScope
     this.count = 0
-
   }
-  on(eventName,callback){
-    if(this.count > 0){
-      console.log('already started')
-    }else{
-      this.socket.on(eventName,(data)=>{
+  once(eventName,callback){
+      this.socket.once(eventName,(data)=>{
         this.$rootScope.$apply(()=>{
           callback(data)
         })
       })
-    }
   }
   emit(eventName,data,callback) {
     this.socket.emit(eventName,data,()=>{
@@ -23,9 +18,6 @@ export class socketService {
         if(callback) callback(...arguments)
       })
     })
-  }
-  remove(){
-    this.socket.removeListener()
   }
 }
 

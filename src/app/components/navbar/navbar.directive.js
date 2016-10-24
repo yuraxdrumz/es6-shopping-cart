@@ -14,12 +14,12 @@ export function NavbarDirective() {
 }
 
 class NavbarController {
-  constructor($location,$log,$scope,userService,$state,toastr,cartService,$mdDialog,currencyService,$localStorage,$timeout) {
+  constructor($location,$log,$scope,userService,$state,toastr,cartService,$mdDialog,currencyService,$localStorage,$timeout,socketService) {
     'ngInject';
     this.cartService = cartService
-    this.notifications = this.cartService.getAll().length
     this.currencyService = currencyService
     this.$localStorage = $localStorage
+    this.socketService = socketService
     this.$userService = userService
     this.$location = $location
     this.$scope = $scope
@@ -29,12 +29,6 @@ class NavbarController {
     this.$mdDialog = $mdDialog
     this.isCollapsed = false
     this.$scope.$watch(()=>this.$userService.isLoggedIn(),this.checkLogged())
-    this.$scope.$watch(()=>this.cartService.getAll().length,this.checkNotifications())
-  }
-  checkNotifications(){
-    return(newVal,oldVal)=>{
-      this.notifications = newVal
-    }
   }
   checkRoute(loc){
     return loc===this.$location.path()
@@ -44,6 +38,12 @@ class NavbarController {
     this.currencyService.changeBase(key,val)
   }
   logout(){
+    let data = {}
+    let {base} = this.$localStorage.cur
+    data.items = this.$localStorage.items
+    data.base = Object.keys(base)[0]
+    data.user_id = this.$userService.currentUser()._id
+    this.socketService.emit('collectData',data)
     this.$userService.logout()
     this.$state.go('home.login')
   }

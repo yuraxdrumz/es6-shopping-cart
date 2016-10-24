@@ -10,7 +10,7 @@
       <a ng-if="vm.logged" class="navbar-brand" ui-sref="home.logged"> <span class="">Home</span> </a>
       <a ng-if="vm.logged" class="shop_cart" ng-click="vm.showCart($event)">
         <i class="material-icons navbar__shop_icon">shopping_basket</i>
-        <div class="navbar__notification">{{vm.notifications}}</div>
+        <div ng-if="vm.cartService.getAll().length>0" class="navbar__notification">{{vm.cartService.getAll().length}}</div>
       </a>
     </div>
     <div collapse class="collapse navbar-collapse" uib-collapse="!vm.isCollapsed" id="navnav">

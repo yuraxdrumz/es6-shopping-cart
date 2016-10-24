@@ -16,7 +16,7 @@ export class homeController{
   sendInit(){
     let user = this.userService.currentUser()
     this.socketService.emit('init',user._id)
-    this.socketService.on('init',(data)=>{
+    this.socketService.once('init',(data)=>{
       if(data == 1) {
         this.toastr.info(`Welcome ${user.name || user.email},this is your first time logging in!`)
       }else{
@@ -24,5 +24,4 @@ export class homeController{
       }
     })
   }
-
 }

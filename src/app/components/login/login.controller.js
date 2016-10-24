@@ -4,8 +4,8 @@ export class loginController{
       this.toastr = toastr;
       this.userService = userService
       this.$state = $state
-      socketService.remove()
-      socketService.count = 0
+      this.socketService = socketService
+      this.socketService.count = 0
 
     }
     login(user){

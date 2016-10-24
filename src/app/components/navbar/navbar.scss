@@ -5,6 +5,10 @@
 .navbar__currency_dropdown{
   color: #5AADBB;
 }
+@keyframes fadeInRight {
+  0% {top:4rem}
+  100%{right:0rem}
+}
 .navbar__notification{
   position: absolute;
   top: 2rem;
@@ -17,6 +21,7 @@
   border-radius: 50%;
   align-items: center;
   font-size: 1rem;
+  animation: 0.3s fadeInRight ease-in;
 }
 a {
   color: black;
