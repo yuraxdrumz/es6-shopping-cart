@@ -1,8 +1,9 @@
 const express              = require('express')
 const app                  = express()
+const config               = require('./server/config/config')
 const http                 = require('http').Server(app)
 const io                   = require('socket.io')(http)
-const port                 = process.env.PORT || 5000
+const port                 = process.env.PORT || config.server.port
 const morgan               = require('morgan')
 const mongoose             = require('mongoose')
 const bodyParser           = require('body-parser')
@@ -11,7 +12,8 @@ const apiRouter            = require('./server/routes/apiRouter')(passport)
                              require('./server/config/passport')(passport)
                              require('./server/routes/socketsRouter')(io)
 mongoose.Promise           = require('bluebird')
-mongoose.connect('mongodb://localhost/cart')
+
+mongoose.connect(config.server.db)
 
 let con = mongoose.connection
 con.on('open',()=>{

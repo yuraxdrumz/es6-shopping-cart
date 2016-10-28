@@ -9,7 +9,7 @@
       <a ng-if="!vm.logged" class="navbar-brand" ui-sref="home.login"> <span class="">Home</span> </a>
       <a ng-if="vm.logged" class="navbar-brand" ui-sref="home.logged"> <span class="">Home</span> </a>
       <a ng-if="vm.logged" class="shop_cart" ng-click="vm.showCart($event)">
-        <i tooltips tooltip-show-trigger="{{{true:'mouseenter', false: 'never'}[vm.tooltip]}}" tooltip-template="{{vm.cartFromLastTime}}" tooltip-side="bottom" tooltip-class="navbar__tooltip" class="material-icons navbar__shop_icon">shopping_basket</i>
+        <i class="material-icons navbar__shop_icon">shopping_basket</i>
         <div ng-if="vm.cartService.getAll().length>0" class="navbar__notification">{{vm.cartService.getAll().length}}</div>
       </a>
     </div>

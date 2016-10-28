@@ -24,7 +24,7 @@ class itemController {
     this.$timeout(()=>{
       this.checkAfterRefresh = this.cartService.getAll()
       this.getQuantityAfterRefresh()
-    },100)
+    },200)
   }
   getQuantityAfterRefresh(){
     for(let item of this.checkAfterRefresh){

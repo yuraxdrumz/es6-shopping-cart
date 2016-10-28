@@ -1,6 +1,7 @@
-const mongoose = require('mongoose')
-const User = require('../models/user-model')
-const localStrategy = require('passport-local').Strategy
+const mongoose                     = require('mongoose')
+const User                         = require('../models/user-model')
+const localStrategy                = require('passport-local').Strategy
+const mailer                       = require('../mailer/regMailer')
 module.exports = (passport) => {
     passport.use('local-signup', new localStrategy({
         usernameField: 'email'
@@ -23,6 +24,7 @@ module.exports = (passport) => {
                 })
                 user.setPassword(password)
                 user.save().then(() => {
+                    mailer(email)
                     done(null, user)
                 }).catch((err) => done(err))
             }

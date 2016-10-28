@@ -17,9 +17,6 @@ class NavbarController {
   constructor($location,$log,$scope,userService,$state,toastr,cartService,$mdDialog,currencyService,$localStorage,$timeout,socketService) {
     'ngInject';
     this.$timeout = $timeout
-    this.tooltip = true
-    this.$timeout(()=>this.tooltip = false,2000)
-    this.cartFromLastTime = 'asdasd'
     this.cartService = cartService
     this.currencyService = currencyService
     this.$localStorage = $localStorage

@@ -5,8 +5,9 @@ const express                  = require('express')
 const router                   = express.Router()
 const items                    = require('../items.json')
 const jwt                      = require('express-jwt')
+const config                   = require('../config/config')
 let auth = jwt({
-  secret:'this is the secret',
+  secret:config.jwt.token,
   userProperty:'payload'
 })
 module.exports = (passport)=>{

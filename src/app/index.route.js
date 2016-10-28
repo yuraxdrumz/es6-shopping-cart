@@ -9,16 +9,8 @@ export function routerConfig($stateProvider, $urlRouterProvider,$locationProvide
       currenciesToShow:(currencyService,$localStorage)=>{
         'ngInject'
         return currencyService.get().then((res)=>{
-          if($localStorage.cur){
-            res.base = $localStorage.cur.base
-            res.rates['USD'] = 1
-            $localStorage.cur = res
-            }
-          else{
-            res.base = {}
-            res.base['USD'] = 1
-            $localStorage.cur = res
-            }
+          res.rates['USD'] = 1
+          $localStorage.cur = res
           return res
         }).catch((err)=>err)
       }
