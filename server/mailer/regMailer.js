@@ -41,9 +41,8 @@ let toSend = (email)=>{
       })
     })
   }else{
-    throw new Error('email not valid')
+    return false
   }
 
 }
-
 module.exports = toSend
