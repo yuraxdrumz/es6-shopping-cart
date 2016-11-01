@@ -27,7 +27,7 @@ module.exports = (io)=>{
             base:data.base
           }).save()
             .then(()=>console.log('saved for the first time'))
-            .catch((err)=>console.log(err))
+            .catch((err)=>next(err))
         }else{
           res.items = data.items
           res.base = data.base

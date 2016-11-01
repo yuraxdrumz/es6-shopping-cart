@@ -20,9 +20,18 @@ con.on('open',()=>{
     app.use(morgan('dev'))
     app.use(passport.initialize())
     app.use(bodyParser.json())
-    app.use('/api',apiRouter)
     //used for dev
     app.use(express.static(`${__dirname}/.tmp`))
+    app.use('/api',apiRouter)
+
+    app.use((err,req,res,next)=>{
+      if(err.name === 'UnauthorizedError') {
+        res.status(401).json(err.name)
+      }else{
+        res.status(err.status || 500).json(err.name || {message:'something went wrong'})
+      }
+    })
+
     app.get('/*',(req,res,next)=> {
       res.sendFile(`${__dirname}/.tmp/serve/index.html`)
     })

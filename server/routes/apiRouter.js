@@ -14,7 +14,7 @@ module.exports = (passport)=>{
     router.post(`/login`,(req,res,next)=>{
         passport.authenticate('local-login',(err, user,info)=>{
             let token
-            if(err) {res.status(504).json(err)}
+            if(err) {next(err)}
             if(user){
                 token = user.generateJwt()
                 res.status(200)
@@ -27,7 +27,7 @@ module.exports = (passport)=>{
     router.post(`/register`,(req,res,next)=>{
         passport.authenticate('local-signup',(err, user,info)=>{
             let token
-            if(err) {res.status(504).json(err)}
+            if(err) {next(err)}
             if(user){
                 token = user.generateJwt()
                 res.status(200)
@@ -37,14 +37,16 @@ module.exports = (passport)=>{
             }
         })(req,res,next)
     })
-    router.get(`/items`,auth,(req,res,next)=>{
+    router.get(`/items`,auth,(err,req,res,next)=>{
         if(req.payload){
           res.status(200)
           res.json({'items':items})
+        }else{
+          next(err)
         }
 
     })
-    router.post(`/bought`,auth,(req,res,next)=>{
+    router.post(`/bought`,auth,(err,req,res,next)=>{
       if(req.payload){
         let buyer = new Buyer({
           _id:mongoose.Types.ObjectId(),
@@ -53,13 +55,17 @@ module.exports = (passport)=>{
         }).save().then((data)=>{
           res.json(data)
         }).catch((err)=>next(err))
+      }else{
+        next(err)
       }
     })
-    router.get(`/purchases`,auth,(req,res,next)=>{
+    router.get(`/purchases`,auth,(err,req,res,next)=>{
       if(req.payload){
         Buyer.find({buyers_id:req.payload._id}).exec().then((data)=>{
           res.json(data)
         }).catch((err)=>next(err))
+      }else{
+        next(err)
       }
     })
     return router
