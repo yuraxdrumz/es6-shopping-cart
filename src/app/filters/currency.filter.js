@@ -1,6 +1,5 @@
 export function currencyFilter(){
-  return function (item,cur){
-
+  return (item,cur)=>{
     if(typeof cur == 'undefined'){
       return item
     }else{

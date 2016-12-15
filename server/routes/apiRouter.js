@@ -37,16 +37,17 @@ module.exports = (passport)=>{
             }
         })(req,res,next)
     })
-    router.get(`/items`,auth,(err,req,res,next)=>{
+    router.get(`/items`,auth,(req,res,next)=>{
         if(req.payload){
           res.status(200)
+          console.log(items)
           res.json({'items':items})
         }else{
-          next(err)
+          return next(error)
         }
 
     })
-    router.post(`/bought`,auth,(err,req,res,next)=>{
+    router.post(`/bought`,auth,(req,res,next)=>{
       if(req.payload){
         let buyer = new Buyer({
           _id:mongoose.Types.ObjectId(),
@@ -56,16 +57,16 @@ module.exports = (passport)=>{
           res.json(data)
         }).catch((err)=>next(err))
       }else{
-        next(err)
+        next(error)
       }
     })
-    router.get(`/purchases`,auth,(err,req,res,next)=>{
+    router.get(`/purchases`,auth,(req,res,next)=>{
       if(req.payload){
         Buyer.find({buyers_id:req.payload._id}).exec().then((data)=>{
           res.json(data)
         }).catch((err)=>next(err))
       }else{
-        next(err)
+        next(error)
       }
     })
     return router

@@ -47,6 +47,7 @@ export class userService{
   login(user){
     return this.$http.post(`/api/login`,user)
       .then((res)=>{
+        console.log(res)
         if(res.data.token){
           this.saveToken(res.data.token)
           this.$http.defaults.headers.common.Authorization = 'Bearer ' + res.data.token

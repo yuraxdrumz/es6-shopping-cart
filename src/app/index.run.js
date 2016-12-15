@@ -8,7 +8,7 @@ export function runBlock ($log,userService,$localStorage,$http,$rootScope,$locat
   if(userService.isLoggedIn()){
     $http.defaults.headers.common.Authorization = 'Bearer ' + userService.getToken()
   }
-  $rootScope.$on('$locationChangeStart',function(event,next,current){
+  $rootScope.$on('$locationChangeStart',(event,next,current)=>{
     if(userService.isLoggedIn()){
       switch($location.path()){
         case '/':
